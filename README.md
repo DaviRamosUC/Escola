@@ -27,10 +27,15 @@
 
 ## Tech/Lib
 * Express
+* Insomnia
 * Javascript
 * Docker
 * Google Cloud
 * ESlint
+* Nodemon
+* sequelizer
+* MariaDB
+* Sucrase
 ---
 
 
