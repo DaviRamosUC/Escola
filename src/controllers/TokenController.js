@@ -4,7 +4,6 @@ import User from "../models/User";
 class TokenController {
   async store(req, res) {
     const { email = "", password = "" } = req.body;
-    console.log("Passei aqui", email, password);
 
     if (!email || !password) {
       return res.status(401).json({
