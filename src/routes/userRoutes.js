@@ -6,8 +6,8 @@ import loginRequired from "../middlewares/loginRequired";
 const router = new Router();
 
 // Meramente ilustrativo
-router.get("/", userController.index); // Lista todos os usuários
-router.get("/:id", userController.show); // Lista usuário
+// router.get("/", userController.index); // Lista todos os usuários
+// router.get("/:id", userController.show); // Lista usuário
 
 // Rotas reais
 router.post("/", userController.store); // Rota aberta
