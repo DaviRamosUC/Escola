@@ -1,4 +1,4 @@
-import Sequelize, { Model } from "sequelize";
+import Sequelize, { Model } from 'sequelize';
 
 export default class Aluno extends Model {
   static init(sequelize) {
@@ -6,68 +6,72 @@ export default class Aluno extends Model {
       {
         nome: {
           type: Sequelize.STRING,
-          defaultValue: "",
+          defaultValue: '',
           validate: {
             len: {
               args: [3, 255],
-              msg: "Nome precisa ter entre 3 e 255 caracteres",
+              msg: 'Nome precisa ter entre 3 e 255 caracteres',
             },
           },
         },
         sobrenome: {
           type: Sequelize.STRING,
-          defaultValue: "",
+          defaultValue: '',
           validate: {
             len: {
               args: [3, 255],
-              msg: "Sobrenome precisa ter entre 3 e 255 caracteres",
+              msg: 'Sobrenome precisa ter entre 3 e 255 caracteres',
             },
           },
         },
         email: {
           type: Sequelize.STRING,
-          defaultValue: "",
+          defaultValue: '',
           unique: {
-            msg: "Email já cadastrado",
+            msg: 'Email já cadastrado',
           },
           validate: {
             isEmail: {
-              msg: "Email inválido",
+              msg: 'Email inválido',
             },
           },
         },
         idade: {
           type: Sequelize.INTEGER,
-          defaultValue: "",
+          defaultValue: '',
           validate: {
             isInt: {
-              msg: "Idade precisa ser um número inteiro",
+              msg: 'Idade precisa ser um número inteiro',
             },
           },
         },
         peso: {
           type: Sequelize.FLOAT,
-          defaultValue: "",
+          defaultValue: '',
           validate: {
             isFloat: {
-              msg: "Peso precisa ser um número inteiro ou fracionado",
+              msg: 'Peso precisa ser um número inteiro ou fracionado',
             },
           },
         },
         altura: {
           type: Sequelize.FLOAT,
-          defaultValue: "",
+          defaultValue: '',
           validate: {
             isFloat: {
-              msg: "Altura precisa ser um número inteiro ou fracionado",
+              msg: 'Altura precisa ser um número inteiro ou fracionado',
             },
           },
         },
       },
       {
         sequelize,
-      },
+      }
     );
     return this;
+  }
+
+  static associate(models) {
+    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
   }
 }
